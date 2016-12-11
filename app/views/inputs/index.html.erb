@@ -2,33 +2,5 @@
 <div class="page-header">
   <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:buyer) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:unitary_price) %></th>
-      <th><%= model_class.human_attribute_name(:amount) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:provider) %></th>
-      <th><%= model_class.human_attribute_name(:data_file_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @inputs.each do |input| %>
-      <tr>
-        <td><%= link_to input.id, input_path(input) %></td>
-        <td><%= input.buyer %></td>
-        <td><%= input.description %></td>
-        <td><%= input.unitary_price %></td>
-        <td><%= input.amount %></td>
-        <td><%= input.address %></td>
-        <td><%= input.provider %></td>
-        <td><%= input.data_file_id %></td>
-        <td><%=l input.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<%= render partial: 'table', locals: { inputs: @inputs } %>

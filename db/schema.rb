@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211113712) do
+ActiveRecord::Schema.define(version: 20161211190218) do
 
   create_table "data_files", force: :cascade do |t|
     t.string   "file"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "inputs", force: :cascade do |t|

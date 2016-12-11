@@ -1,5 +1,5 @@
 class InputsController < ApplicationController
-  before_action :set_input, only: [:show]
+  before_action :set_input, only: :show
 
   def index
     @inputs = Input.all

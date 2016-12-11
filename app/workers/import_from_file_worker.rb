@@ -2,11 +2,16 @@ class ImportFromFileWorker
   include Sidekiq::Worker
 
   def perform(id)
-    data = DataFile.find(id)
-    File.open(data.file.current_path, 'r').each_with_index do |line, i|
-      next if i == 0
-      attrib_array = line.split("\t")
-      data.inputs.create(array_to_hash(attrib_array))
+    begin
+      data = DataFile.find(id)
+      File.open(data.file.current_path, 'r').each_with_index do |line, i|
+        next if i == 0
+        attrib_array = line.split("\t")
+        data.inputs.create(array_to_hash(attrib_array))
+      end
+      data.update_attribute(:status, 'success')
+    rescue StandardError => e
+      data.update_attribute(:status, 'error')
     end
   end
 

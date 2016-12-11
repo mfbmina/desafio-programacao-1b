@@ -5,5 +5,5 @@ class DataFile < ApplicationRecord
 
   validates :file, presence: true
 
-  enum status: { success: 0, error: 1 }
+  enum status: { processing: 0, success: 1, error: 2 }
 end
