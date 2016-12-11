@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210214026) do
+ActiveRecord::Schema.define(version: 20161211113712) do
 
   create_table "data_files", force: :cascade do |t|
     t.string   "file"
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inputs", force: :cascade do |t|
+    t.string   "buyer"
+    t.string   "description"
+    t.decimal  "unitary_price", precision: 9, scale: 2
+    t.integer  "amount"
+    t.string   "address"
+    t.string   "provider"
+    t.integer  "data_file_id"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["data_file_id"], name: "index_inputs_on_data_file_id"
   end
 
 end

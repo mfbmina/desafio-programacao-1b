@@ -1,0 +1,23 @@
+<%- model_class = Input -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:buyer) %>:</strong></dt>
+  <dd><%= @input.buyer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @input.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unitary_price) %>:</strong></dt>
+  <dd><%= @input.unitary_price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:amount) %>:</strong></dt>
+  <dd><%= @input.amount %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @input.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:provider) %>:</strong></dt>
+  <dd><%= @input.provider %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data_file_id) %>:</strong></dt>
+  <dd><%= @input.data_file_id %></dd>
+</dl>
+
+<%= link_to t('.back', default: t("helpers.links.back")), inputs_path, class: 'btn btn-default'  %>

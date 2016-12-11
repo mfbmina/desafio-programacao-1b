@@ -28,6 +28,7 @@ class DataFilesController < ApplicationController
 
     respond_to do |format|
       if @data_file.save
+        ImportFromFileWorker.perform_async(@data_file.id)
         format.html { redirect_to @data_file, notice: 'Data file was successfully created.' }
         format.json { render :show, status: :created, location: @data_file }
       else
