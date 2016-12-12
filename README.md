@@ -1,7 +1,5 @@
 # README
 
-This project is a test for a job of Senior Ruby Developer.
-
 # System dependencies
 * Ruby 2.3.1
 * bundler
