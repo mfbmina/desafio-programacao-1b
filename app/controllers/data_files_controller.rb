@@ -2,7 +2,7 @@ class DataFilesController < ApplicationController
   before_action :set_data_file, only: :show
 
   def index
-    @data_files = DataFile.all
+    @data_files = DataFile.all.page(params[:page]).per(10)
   end
 
   def show
